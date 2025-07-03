@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+requires-python = ">=3.9"
+name = "localsftpserver"
+version = "0.0.1"
+description = "localsftpserver - an asynchronous SFTP server in Python"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    {name = "David Degen", email = "ddegen@ethz.ch"},
+    {name = "Ruslan Spivak", email = "ruslan.spivak@gmail.com"},
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Topic :: Internet :: File Transfer Protocol (FTP)",
+    "Operating System :: Unix",
+]
+dependencies = [
+    "fsspec", "paramiko",
+]
+
+[project.urls]
+homepage = "http://github.com/ddegen/localsftpserver"
+
+
+[project.optional-dependencies]
+test = ["pytest"]
+dev = [
+    "ruff",
+    "black",
+    "mypy",
+    "pytest",
+]
+
+[project.scripts]
+localsftpserver = "localsftpserver:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
