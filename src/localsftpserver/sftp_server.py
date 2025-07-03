@@ -95,8 +95,7 @@ class SFTPServer:
         self.backlog = backlog
         self.start_timeout = start_timeout
 
-        if not root_path:
-            self.root_path = os.getcwd()
+        self.root_path = os.getcwd() if not root_path else root_path
         StubSFTPServer.ROOT = self.root_path
 
     def __enter__(self):
